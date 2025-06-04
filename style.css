@@ -1,0 +1,313 @@
+/* Загальні стилі */
+body {
+    font-family: sans-serif;
+    background: #e3e2e2;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  /* Контейнер з двома колонками */
+  .container {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Ліва колонка */
+  .column1 {
+    background: white;
+    border-radius: 8px;
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  /* Права колонка */
+  .column2 {
+    background: white;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  /* Адаптивність: на маленьких екранах колонки під один рядок */
+  @media (max-width: 650px) {
+    .column1, .column2 {
+      flex: 1 1 100%;
+    }
+  }
+  
+  /* Вхідний інпут + кнопка додати */
+  .input-wrapper {
+    display: flex;
+    gap: 0; /* Без проміжку між інпутом і кнопкою */
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  
+  .input-wrapper input[type="text"] {
+    flex: 1; /* Займає всю ширину, окрім кнопки */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgrey;
+    border-right: none; /* Щоб не було подвійної рамки між input і кнопкою */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+  }
+  
+  .input-wrapper input[type="text"]:focus {
+    border-color: #007bff;
+    
+  }
+  
+  .input-wrapper .add-btn {
+    background: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 0 darkblue; /* тінь знизу */
+  }
+  
+  /* Окремий товар (рядок) */
+  .item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid lightgrey;
+    gap: 10px;
+  }
+  
+  
+  /* Назва товару */
+  .item-name {
+    flex: 1; 
+    font-size: 18px;
+  }
+  
+  .item-name.bought {
+    text-decoration: line-through;
+  }
+  
+  /* Лічильник (кнопки - 2 +) */
+  .counter {
+    flex: 1;
+    display: flex;
+    align-items: center; /* всередині вирівнює */
+    gap: 10px; /* між ними */
+  }
+
+  .right-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Число в лічильнику */
+  .count {
+    background: lightgrey;
+    padding: 5px 0px; 
+    border-radius: 5px;
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Кнопки */
+  .btn {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  
+  /* Круглі кнопки для + і - */
+  .btn.red, .btn.green, .btn.cancelRed {
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+  .btn.red {
+    background: #e60b0b;
+    box-shadow: 0 4px 0 darkred; /* тінь знизу */
+  }
+  
+  .btn.red:hover {
+    background: #b02a37;
+  }
+
+  .btn.cancelRed {
+    background: #e60b0b;
+    border-radius: 10%;
+    box-shadow: 0 4px 0 darkred; /* тінь знизу */
+  }
+
+  .btn.cancelRed:hover {
+    background: #b02a37;
+    border-radius: 10%;
+  }
+
+  .btn.green {
+    background: #159715;
+    box-shadow: 0 4px 0 darkgreen; /* тінь знизу */
+
+  }
+  
+  .btn.green:hover {
+    background: #1c7430;
+  }
+
+  .btn.grey {
+    box-shadow: 0 4px 0 darkgrey; /* тінь знизу */
+  }
+  
+  /* Сірі кнопки "Куплено", "Не куплено" */
+  .btn.grey {
+    background: #ccc;
+    padding: 6px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .btn.grey:hover {
+    background: #bbb;
+  }
+  
+  /* Підказки (tooltip) */
+  .tooltip-btn {
+    position: relative;
+  }
+  
+  .tooltip-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: purple;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 10; /* поверх інших елементів */
+  }
+  
+  .tooltip-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  
+  /* Блоки статусів цифри у правій колонці */
+  .status-label {
+    display: inline-block;
+    background: orange;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+    /* назви */
+  .section-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    
+  }
+
+  .status-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .status-list:last-child {
+    border-bottom: none;
+  }
+  
+  /* елементи */
+  .status-item {
+    background: #eee;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+  .badge {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #6a0dad; /* темно-фіолетовий */
+    color: white;
+    padding: 20px 20px;
+    padding-top: 50px;
+    border-radius: 20px 20px 0 0;
+    font-family: sans-serif;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+    height: 10px;
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .badge:hover {
+    height: 100px;
+    background-color: #2e1d61; /* темніший фіолетовий при наведенні */
+  }
+  
+  .author-text {
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .badge:hover .author-text {
+    opacity: 1;
+  }
+  
+  /* Стилі для друку */
+  @media print {
+    .badge {
+      background-color: white;
+      border: 2px solid purple;
+      color: purple;
+      padding: 30px 30px;
+    }
+  
+    .badge .main-text {
+      font-size: 0; /* Сховати текст "Buy List" */
+    }
+  
+    .badge .author-text {
+      font-size: 14px;
+      color: purple;
+      opacity: 1;
+      /* margin-top: 5px; */
+    }
+  }

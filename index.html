@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Список покупок</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <!-- Ліва колонка -->
+    <div class="column1">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Назва товару" />
+        <button class="add-btn tooltip-btn" data-tooltip="Додати товар">Додати</button>
+      </div>
+
+      <!-- Товар 1 -->
+      <div class="item">
+        <span class="item-name bought">Помідори</span>
+        <div class="counter">
+          <span class="count">2</span>
+        </div>
+        <div class="right-buttons">
+        <button class="btn grey tooltip-btn" data-tooltip="Не куплено">Не куплено</button>
+        </div>
+      </div>
+
+      <!-- Товар 2 -->
+      <div class="item">
+        <span class="item-name">Печиво</span>
+        <div class="counter">
+          <button class="btn red tooltip-btn" data-tooltip="Зменшити">−</button>
+          <span class="count">2</span>
+          <button class="btn green tooltip-btn" data-tooltip="Збільшити">+</button>
+        </div>
+
+        <div class="right-buttons">
+        <button class="btn grey tooltip-btn" data-tooltip="Куплено">Куплено</button>
+        <button class="btn cancelRed tooltip-btn" data-tooltip="Видалити">X</button>
+      </div>
+      </div>
+
+      <!-- Товар 3 -->
+      <div class="item">
+        <div class="third-item">
+            <input type="text" placeholder="Введіть товар" />
+            </div>
+        <div class="counter">
+          <button class="btn red tooltip-btn" data-tooltip="Зменшити">−</button>
+          <span class="count">1</span>
+          <button class="btn green tooltip-btn" data-tooltip="Збільшити">+</button>
+        </div>
+
+        <div class="right-buttons">
+        <button class="btn grey tooltip-btn" data-tooltip="Куплено">Куплено</button>
+        <button class="btn cancelRed tooltip-btn" data-tooltip="Видалити">X</button>
+      </div>
+      </div>
+    </div>
+
+    <!-- Права колонка -->
+    <div class="column2">
+      <div class="section-title">Залишилося</div>
+      <div class="status-list">
+        <div class="status-item">Печиво <span class="status-label">2</span></div>
+        <div class="status-item">Сир <span class="status-label">1</span></div>
+      </div>
+
+      <div class="section-title">Куплено</div>
+      <div class="status-list">
+        <div class="status-item"><span class="item-name bought">Помідори</span> <span class="status-label">2</span></div>
+      </div>
+    </div>
+    <div class="badge">
+        <div class="main-text">Buy List</div>
+        <div class="author-text">Created by:<br>Василь</div>
+      </div>
+  </div>
+</body>
+</html>
